@@ -1,0 +1,21 @@
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  
+.dropdown-content {
+   overflow-y: visible;
+}
+
+.dropdown-content .dropdown-content {
+   margin-left: 100%;
+}
+
+ul#dropdown1.dropdown-content.active {
+    top: 50px !important;
+}

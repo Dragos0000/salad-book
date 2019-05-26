@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dragos Paun">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Salad Book</title>
+    <!--Materialize css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600&display=swap" rel="stylesheet">
+    <!--Custom css-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+</head>
+
+<body>
+    <header>
+
+        <!--Nav content-->
+        <div class="navbar-fixed">
+            <nav>
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="{{url_for('get_recipes')}}" class="brand-logo">Salad Book</a>
+                        <a href="#" data-activates="mobile-nav-bar" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="#">View all Recipes</a></li>
+                            <li><a href="#">Add Recipe</a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
+                        </ul>
+                                <!--Dropdown Structure -->
+                        <ul id="dropdown1" class="dropdown-content">
+                               <li><a class='dropdown-button' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="left">Season<i class="material-icons right"> arrow_forward</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right"> arrow_forward</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">Dietary Requirement<i class="material-icons right"> arrow_forward</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown5" data-hover="hover" data-alignment="left">Popularity<i class="material-icons right"> arrow_forward</i></a></li>
+                        </ul>
+                         <ul class="dropdown-content" id="dropdown2">
+                            <li><a href="#">Spring</a></li>
+                            <li><a href="#">Summer</a></li>
+                            <li><a href="#">Autumn</a></li>
+                            <li><a href="#">Winter</a></li>
+                        </ul>  
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!--Side nav-->
+        <ul class="side-nav" id="mobile-nav-bar">
+            <li>
+                <div class="row">
+                    <div class="col s12">
+                        <img src="https://b.kisscc0.com/20180718/fbq/kisscc0-chef-s-uniform-cooking-cajun-cuisine-food-male-chef-5b4f027fbed1c1.0210324215319046397816.jpg" alt="recipe image" class="responsive-img valign">
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">View all Recipes</a></li>
+            <li><a href="#">Add Recipe</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li class="sidenav-header">
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body z-depth-3">
+                                <ul>
+                                    <li><a href="#">With meat</a></li>
+                                    <li><a href="#">Meat-Free</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect waves-blue">Search by Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#">Easy</a></li>
+                                    <li><a href="#">Medium</a></li>
+                                    <li><a href="#">Hard</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect waves-blue">Search by Popularity <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#">Show Most Popular</a></li>
+                                    <li><a href="#">Show Least Popular</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </li>
+        </ul>
+        
+    </header>
+
+    <!--Main Article -->
+
+    <main>
+        <!--linked content inserted here-->
+        <div class="container">
+            {% block content %} 
+            {% endblock %}
+        </div>
+    </main>
+    <!--Footer-->
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+    
+    <!--Materialize JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        // Materialize Navigation
+        $(document).ready(function() {
+            $(".dropdown-trigger").dropdown({ constrainWidth: false });
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $('.button-collapse').sideNav();
+        });
+    </script>
+
+</body>
+
+</html>
