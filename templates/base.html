@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dragos Paun">
@@ -25,25 +24,30 @@
             <nav>
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a href="{{url_for('get_recipes')}}" class="brand-logo">Salad Book</a>
+                        <a href="{{url_for('get_recipes')}}" class="brand-logo right"><i class="material-icons">content_paste</i>Salad Book</a>
                         <a href="#" data-activates="mobile-nav-bar" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li><a href="#">View all Recipes</a></li>
-                            <li><a href="#">Add Recipe</a></li>
+                            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                                 <!--Dropdown Structure -->
                         <ul id="dropdown1" class="dropdown-content">
-                               <li><a class='dropdown-button' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="left">Season<i class="material-icons right"> arrow_forward</i></a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right"> arrow_forward</i></a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">Dietary Requirement<i class="material-icons right"> arrow_forward</i></a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown5" data-hover="hover" data-alignment="left">Popularity<i class="material-icons right"> arrow_forward</i></a></li>
+                            <li><a class='dropdown-trigger' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="left">Season<i class="material-icons right">navigate_next</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right">navigate_next</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">Type<i class="material-icons right">navigate_next</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown5" data-hover="hover" data-alignment="left">Popularity<i class="material-icons right">navigate_next</i></a></li>
                         </ul>
                          <ul class="dropdown-content" id="dropdown2">
                             <li><a href="#">Spring</a></li>
                             <li><a href="#">Summer</a></li>
                             <li><a href="#">Autumn</a></li>
                             <li><a href="#">Winter</a></li>
+                        </ul>  
+                        <ul class="dropdown-content" id="dropdown3">
+                            <li><a href="#">Easy</a></li>
+                            <li><a href="#">Medium</a></li>
+                            <li><a href="#">Hard</a></li>
                         </ul>  
                     </div>
                 </div>
@@ -60,7 +64,7 @@
                 </div>
             </li>
             <li><a href="#">View all Recipes</a></li>
-            <li><a href="#">Add Recipe</a></li>
+            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
             <li>
                 <div class="divider"></div>
             </li>
@@ -68,11 +72,11 @@
                 <li class="white">
                     <ul class="collapsible collapsible-accordion">
                         <li>
-                            <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <a class="collapsible-header waves-effect waves-blue ">Search by type <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body z-depth-3">
                                 <ul>
                                     <li><a href="#">With meat</a></li>
-                                    <li><a href="#">Meat-Free</a></li>
+                                    <li><a href="#">Vegetarian</a></li>
                                     <li>
                                         <div class="divider"></div>
                                     </li>
@@ -122,7 +126,6 @@
     <!--Main Article -->
 
     <main>
-        <!--linked content inserted here-->
         <div class="container">
             {% block content %} 
             {% endblock %}
@@ -159,13 +162,14 @@
     <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{url_for('static', filename='js/addIngredients.js')}}"></script>
     <script>
-        // Materialize Navigation
         $(document).ready(function() {
             $(".dropdown-trigger").dropdown({ constrainWidth: false });
             $('.collapsible').collapsible();
             $('select').material_select();
             $('.button-collapse').sideNav();
+            addIngredient();
         });
     </script>
 

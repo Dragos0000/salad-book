@@ -18,4 +18,23 @@
 
 ul#dropdown1.dropdown-content.active {
     top: 50px !important;
+    white-space: nowrap;
 }
+
+/*.add_button i,*/
+/*.add_method_button i {*/
+
+/*    position: relative;*/
+/*    right: 35px;*/
+/*    float: right;*/
+/*    bottom: 58px;*/
+/*    font-size: 40px;*/
+/*}*/
+
+
+/*a.remove_button.validate {*/
+/*    position: relative;*/
+/*    top: 27px;*/
+/*    right: 29px;*/
+/*    color: red;*/
+/*}*/
