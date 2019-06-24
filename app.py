@@ -38,7 +38,7 @@ def insert_recipe():
         'type': request.form['type'],
         'difficulty':request.form['difficulty'],
         'prep_time': request.form['prep_time'],
-        'rating':request.form['rating'],
+        'rating':int(request.form['rating']),
         'image_url': request.form['image_url'],
         'ingredients': ingredients_needed,
         'method': request.form['method']
@@ -74,7 +74,7 @@ def update_recipe(recipe_id):
         'type': request.form['type'],
         'difficulty':request.form['difficulty'],
         'prep_time': request.form['prep_time'],
-        'rating':request.form['rating'],
+        'rating': int(request.form['rating']),
         'image_url': request.form['image_url'],
         'ingredients': ingredients_needed,
         'method': request.form['method']
@@ -89,7 +89,66 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
+# search by season
 
+@app.route('/get_spring')
+def get_spring():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"season" : "Spring"}))
+    
+@app.route('/get_summer')
+def get_summer():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"season" : "Summer"}))
+    
+@app.route('/get_autumn')
+def get_autumn():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"season" : "Autumn"}))  
+    
+@app.route('/get_winter')
+def get_winter():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"season" : "Winter"}))
+
+# search by difficulty
+@app.route('/get_easy')
+def get_easy():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"difficulty": "Easy"}))  
+    
+@app.route('/get_medium')
+def get_medium():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"difficulty": "Medium"}))
+
+@app.route('/get_hard')
+def get_hard():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"difficulty": "Hard"}))
+
+# search by type
+@app.route('/get_vegetarian')
+def get_vegetarian():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"type" : "Vegetarian"}))  
+    
+@app.route('/get_with_meat')
+def get_with_meat():
+    return render_template('filteredRecipes.html',
+    recipes=mongo.db.recipes.find({"type" : "With meat"}))
+
+# search by popularity    
+    
+@app.route('/less_popular')
+def less_popular():
+    return render_template('filteredRecipes.html',
+   recipes=mongo.db.recipes.find( { '$query': {"rating": {'$lt': 4 }}, '$orderby': { 'rating' : -1 } } ))
+   
+@app.route('/most_popular')
+def most_popular():
+    return render_template('filteredRecipes.html',
+   recipes=mongo.db.recipes.find( { '$query': {"rating": {'$gt': 3 }}, '$orderby': { 'rating' : -1 } } ))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

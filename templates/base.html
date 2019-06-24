@@ -39,16 +39,24 @@
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown5" data-hover="hover" data-alignment="left">Popularity<i class="material-icons right">navigate_next</i></a></li>
                         </ul>
                          <ul class="dropdown-content" id="dropdown2">
-                            <li><a href="#">Spring</a></li>
-                            <li><a href="#">Summer</a></li>
-                            <li><a href="#">Autumn</a></li>
-                            <li><a href="#">Winter</a></li>
+                            <li><a href="{{url_for('get_spring')}}">Spring</a></li>
+                            <li><a href="{{url_for('get_summer')}}">Summer</a></li>
+                            <li><a href="{{url_for('get_autumn')}}">Autumn</a></li>
+                            <li><a href="{{url_for('get_winter')}}">Winter</a></li>
                         </ul>  
                         <ul class="dropdown-content" id="dropdown3">
-                            <li><a href="#">Easy</a></li>
-                            <li><a href="#">Medium</a></li>
-                            <li><a href="#">Hard</a></li>
+                            <li><a href="{{url_for('get_easy')}}">Easy</a></li>
+                            <li><a href="{{url_for('get_medium')}}">Medium</a></li>
+                            <li><a href="{{url_for('get_hard')}}">Hard</a></li>
                         </ul>  
+                        <ul class="dropdown-content" id="dropdown4">
+                            <li><a href="{{url_for('get_vegetarian')}}">Vegetarian</a></li>
+                            <li><a href="{{url_for('get_with_meat')}}">With meat</a></li>
+                        </ul>  
+                        <ul class="dropdown-content" id="dropdown5">
+                            <li><a href="{{url_for('most_popular')}}">Most popular</a></li>
+                            <li><a href="{{url_for('less_popular')}}">Less popular</a></li>
+                        </ul> 
                     </div>
                 </div>
             </nav>
@@ -75,8 +83,8 @@
                             <a class="collapsible-header waves-effect waves-blue ">Search by type <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body z-depth-3">
                                 <ul>
-                                    <li><a href="#">With meat</a></li>
-                                    <li><a href="#">Vegetarian</a></li>
+                                    <li><a href="{{url_for('get_vegetarian')}}">Vegetarian</a></li>
+                                    <li><a href="{{url_for('get_with_meat')}}">With meat</a></li>
                                     <li>
                                         <div class="divider"></div>
                                     </li>
@@ -91,9 +99,27 @@
                             <a class="collapsible-header waves-effect waves-blue">Search by Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">Easy</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Hard</a></li>
+                                    <li><a href="{{url_for('get_easy')}}">Easy</a></li>
+                                    <li><a href="{{url_for('get_medium')}}">Medium</a></li>
+                                    <li><a href="{{url_for('get_hard')}}">Hard</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect waves-blue">Search by Season <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{{url_for('get_spring')}}">Spring</a></li>
+                                    <li><a href="{{url_for('get_summer')}}">Summer</a></li>
+                                    <li><a href="{{url_for('get_autumn')}}">Autumn</a></li>
+                                    <li><a href="{{url_for('get_winter')}}">Winter</a></li>
                                     <li>
                                         <div class="divider"></div>
                                     </li>
@@ -108,8 +134,8 @@
                             <a class="collapsible-header waves-effect waves-blue">Search by Popularity <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#">Show Most Popular</a></li>
-                                    <li><a href="#">Show Least Popular</a></li>
+                                    <li><a href="{{url_for('most_popular')}}">Most popular</a></li>
+                                    <li><a href="{{url_for('less_popular')}}">Less popular</a></li>
                                     <li>
                                         <div class="divider"></div>
                                     </li>
