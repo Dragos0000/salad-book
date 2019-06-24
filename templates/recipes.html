@@ -2,7 +2,13 @@
 {% block content %}
 
 <h3>All Salad Recipes</h3>
-
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+            {% for message in messages %}
+            <p class="hide flash_message"> {{ message }} </p>
+            {% endfor %}
+        {% endif %} 
+    {% endwith %}
 <div class="row"> 
   {% for recipe in recipes %}
   <div class="col s12 l6 recipes_card">
@@ -38,8 +44,8 @@
         <p>{{recipe.method}}</p>
         </div>
         <div class="edit">
-          <input class="btn waves-effect waves-light edit_btn" type="button" name="edit" value="Edit" />
-          <input class="btn waves-effect waves-light red" type="button" name="delete" value="Delete"  />
+          <input class="btn waves-effect waves-light edit_btn" type="button" name="edit" value="Edit" onClick="window.location.href='{{url_for('edit_recipe', recipe_id=recipe._id)}}';" />
+          <input class="btn waves-effect waves-light red" type="button" name="delete" value="Delete" onClick="window.location.href='{{url_for('delete_recipe', recipe_id=recipe._id)}}';" />
         </div>
       </div>
     </div>

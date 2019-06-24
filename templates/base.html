@@ -27,7 +27,7 @@
                         <a href="{{url_for('get_recipes')}}" class="brand-logo right"><i class="material-icons">content_paste</i>Salad Book</a>
                         <a href="#" data-activates="mobile-nav-bar" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="#">View all Recipes</a></li>
+                            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
                             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
@@ -170,9 +170,17 @@
             $('select').material_select();
             $('.button-collapse').sideNav();
             addIngredient();
+            
+            
+            function isEmpty(value) {
+                return (value === null || value === undefined || value.length === 0);
+            }
+            var flashMessage = $('.flash_message').text();
+            if (!isEmpty(flashMessage)) {
+                Materialize.toast(flashMessage, 4000)
+            }
         });
     </script>
-
 </body>
 
 </html>

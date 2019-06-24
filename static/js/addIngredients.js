@@ -4,7 +4,7 @@ function addIngredient() {
     let maxOfIngredients = 10; 
     let addIngredientButton = $('.add_button'); 
     let addIngredientDiv = $('.ingredient_div');
-    let addIngredientFieldHtml = '<div class="row"><div class="input-field ingredient_div col s12"><i class="material-icons prefix">local_grocery_store</i><input type="text" name="ingredients" value="" required/><label for="icon_prefix">Add Ingredient</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>'; 
+    let addIngredientFieldHtml = '<div class="row"><div class="input-field ingredient_div col s10"><i class="material-icons prefix">edit</i><input type="text" name="ingredients" value="" required/><label for="icon_prefix">Add Ingredient</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>'; 
     let ingredientNumber = 1;
 
     //add ingredient
