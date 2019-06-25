@@ -1,10 +1,10 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<h3>Edit Recipe</h3>
+<h3 class="page-title">Edit Recipe</h3>
 
 <div class="row">
-    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12 edit_recipe_form">
+    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12 edit_recipe_form recipe-form">
         <div id="editForm" class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">title</i>
@@ -83,7 +83,7 @@
             </div> 
         </div>
         <div class="row">
-            <div class="input-field ingredient_div col s10">
+            <div class="input-field ingredient_div col s12">
                 <i class="material-icons prefix">local_grocery_store</i>
                 {% for ingredient in recipe.ingredients %}
                 <input type="text" name="ingredients" class="validate" value="{{ingredient}}" required />
@@ -101,10 +101,10 @@
         </div>
         <div class="row">
      
-            <button class="btn waves-effect waves-light add_recipe_btn" type="submit" name="action">Save Recipe
+            <button class="btn waves-effect waves-light form-button" type="submit" name="action">Save Recipe
                 <i class="material-icons right">save</i>
                 </button>
-            <input class="btn waves-effect waves-light cancel_update" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
+            <input class="btn waves-effect waves-light form-button" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
 
         </div>
     </form>

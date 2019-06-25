@@ -1,10 +1,10 @@
 {% extends 'base.html'%} 
 {% block content %}
 
-<h3>Add Recipe</h3>
+<h3 class="page-title">Add Recipe</h3>
 
 <div class="row">
-    <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12 add_recipe_form">
+    <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12 add_recipe_form recipe-form">
         <div id="addForm" class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">title</i>
@@ -66,7 +66,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">camera_alt</i>
-                <input id="image_url" name="image_url" type="url" class="validate" placeholder="https://example.com" required />
+                <input id="image_url" name="image_url" type="url" class="validate" placeholder="https://example.jpg" required />
                 <label for="icon_prefix">Image URL</label>
             </div> 
         </div>
@@ -88,10 +88,10 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light add_recipe_btn" type="submit" name="action">Add Recipe
+            <button class="btn waves-effect waves-light form-button" type="submit" name="action">Add Recipe
             <i class="material-icons right">playlist_add</i>
             </button>
-            <input class="btn waves-effect waves-light cancel_update" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
+            <input class="btn waves-effect waves-light form-button" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
         </div>
     </form>
 </div>
