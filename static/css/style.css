@@ -5,6 +5,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: 'Oswald', sans-serif;
   }
 
   main {
@@ -111,4 +112,12 @@
 
 .btn:hover, .btn-large:hover {
     background-color: #0089ec;
+}
+
+.chart-container {
+    width: 80%;
+    margin: 10px auto;
+    background-color: #faebd7;
+    
+
 }

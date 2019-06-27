@@ -28,6 +28,7 @@
                         <a href="#" data-activates="mobile-nav-bar" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                            <li><a href="{{url_for('data_chart')}}">Data chart</a></li>
                             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
@@ -171,14 +172,15 @@
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="{{url_for('get_recipes')}}">View all Recipes</a></li>
                     <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{url_for('data_chart')}}">Data chart</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
+                        <p class="copyright text-muted made">Copyright © 2019 made by</p>
+                        <a href='https://github.com/Dragos0000' target='_blank'><img class="logo" src="../static/img/logo.png" alt='logo'></a>
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
@@ -206,6 +208,56 @@
             }
         });
     </script>
+    
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+            <script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{data_labels|safe}},
+        datasets: [{
+            label: '# of recipes',
+            data: {{data}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    responsive: true, 
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+                layout: {
+            padding: {
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10
+            }
+        }
+    }
+});
+</script>
 </body>
 
 </html>

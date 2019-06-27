@@ -2,6 +2,9 @@ import os
 from flask import Flask, flash, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
+import json 
+from bson import json_util
+from bson.json_util import dumps
 
 app = Flask(__name__)
 app.secret_key = 'some_secret' 
@@ -149,6 +152,31 @@ def less_popular():
 def most_popular():
     return render_template('filteredRecipes.html',
    recipes=mongo.db.recipes.find( { '$query': {"rating": {'$gt': 3 }}, '$orderby': { 'rating' : -1 } } ))
+   
+   
+   
+@app.route('/data_chart')
+def data_chart():
+
+    data_labels=[]
+    data = []
+    spring_recipes_number = mongo.db.recipes.count({"season": "Spring"})
+    summer_recipes_number = mongo.db.recipes.count({"season": "Summer"})
+    autumn_recipes_number = mongo.db.recipes.count({"season": "Autumn"})
+    winter_recipes_number = mongo.db.recipes.count({"season": "Winter"})
+    data.extend([spring_recipes_number,spring_recipes_number,autumn_recipes_number,winter_recipes_number])
+    
+    seasons_collection=mongo.db.seasons.find()
+    
+    
+    for season in seasons_collection:
+        label = season["season"]
+        data_labels.append(label) 
+        
+    print(data)
+    print(data_labels)
+
+    return render_template('dataChart.html', data_labels=data_labels, data=data)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
