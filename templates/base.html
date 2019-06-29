@@ -211,10 +211,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: { { data_labels | safe } },
+                labels: {{data_labels|safe}},
                 datasets: [{
                     label: '# of recipes',
-                    data: { { data | safe } },
+                    data: {{data|safe}},
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

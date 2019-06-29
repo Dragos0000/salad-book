@@ -41,7 +41,7 @@ Create the Procfile ----> echo web: python run.py > Procfile
 
 Scale app dynos for heroku ----> heroku ps:scale web=1 
 
-git push heroku master Git add . and commit followed by a push to Heroku
+Push to Heroku ----> git push heroku master 
 
 
 
