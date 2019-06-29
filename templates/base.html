@@ -7,6 +7,7 @@
     <meta name="author" content="Dragos Paun">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Salad Book</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
     <!--Materialize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--Google fonts-->
@@ -72,7 +73,8 @@
                     </div>
                 </div>
             </li>
-            <li><a href="#">View all Recipes</a></li>
+            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+            <li><a href="{{url_for('data_chart')}}">Data chart</a></li>
             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
             <li>
                 <div class="divider"></div>
@@ -178,15 +180,12 @@
             </div>
           </div>
           <div class="footer-copyright">
-            <div class="container">
-                        <p class="copyright text-muted made">Copyright © 2019 made by</p>
-                        <a href='https://github.com/Dragos0000' target='_blank'><img class="logo" src="../static/img/logo.png" alt='logo'></a>
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="row center-align">
+                <p class="copyright text-muted made">Copyright © 2019 made by <a href='https://github.com/Dragos0000' target='_blank'>&lt;&lt;Dude4Code&gt;&gt;</a></p>
             </div>
           </div>
         </footer>
     
-    <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='js/addIngredients.js')}}"></script>
@@ -196,6 +195,7 @@
             $('.collapsible').collapsible();
             $('select').material_select();
             $('.button-collapse').sideNav();
+            $('.stars-inner').css('width', '30%');
             addIngredient();
             
             
@@ -218,7 +218,7 @@ var myChart = new Chart(ctx, {
         labels: {{data_labels|safe}},
         datasets: [{
             label: '# of recipes',
-            data: {{data}},
+            data: {{data|safe}},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

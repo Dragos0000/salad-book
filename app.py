@@ -2,12 +2,10 @@ import os
 from flask import Flask, flash, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
-import json 
-from bson import json_util
-from bson.json_util import dumps
+
 
 app = Flask(__name__)
-app.secret_key = 'some_secret' 
+app.secret_key = os.urandom(50) 
 app.config["MONGO_DBNAME"] = 'cook_book'
 app.config["MONGO_URI"] ='mongodb://dude:h310db@ds149706.mlab.com:49706/cook_book'
 
@@ -27,7 +25,7 @@ def add_recipe():
     difficulties=mongo.db.difficulties.find(),
     types=mongo.db.types.find())
     
-    
+#   insert recipe in DB  
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
     flash("Recipe ADDED! Thank you")
@@ -62,6 +60,7 @@ def edit_recipe(recipe_id):
                             difficulties=difficulties_collection,
                             types=types_collection)
 
+# update recipe
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     flash("Recipe UPDATED! Thank you")
@@ -85,7 +84,7 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('get_recipes'))
 
-
+# delete recipe
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     flash("DELETED! Maybe now you should add one")
@@ -153,7 +152,7 @@ def most_popular():
     return render_template('filteredRecipes.html',
    recipes=mongo.db.recipes.find( { '$query': {"rating": {'$gt': 3 }}, '$orderby': { 'rating' : -1 } } ))
    
-   
+# collect data for chart  
    
 @app.route('/data_chart')
 def data_chart():
@@ -164,7 +163,7 @@ def data_chart():
     summer_recipes_number = mongo.db.recipes.count({"season": "Summer"})
     autumn_recipes_number = mongo.db.recipes.count({"season": "Autumn"})
     winter_recipes_number = mongo.db.recipes.count({"season": "Winter"})
-    data.extend([spring_recipes_number,spring_recipes_number,autumn_recipes_number,winter_recipes_number])
+    data.extend([spring_recipes_number,summer_recipes_number,autumn_recipes_number,winter_recipes_number])
     
     seasons_collection=mongo.db.seasons.find()
     

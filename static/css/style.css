@@ -11,7 +11,7 @@
   main {
     flex: 1 0 auto;
   }
-
+/*------------------------------nav bar*/
 
   nav {
     background-color: #2d497c;
@@ -20,11 +20,6 @@
 .dropdown-content li>a, .dropdown-content li>span {
     color: #2d497c;
 }
-
-  .page-title {
-    color: #f0f8ff;
-  }
-
 
   .dropdown-content {
     overflow-y: visible;
@@ -40,7 +35,7 @@
   }
 
 
-  /*scroll bar styles*/
+  /*---------------------------------------------------------scroll bar styles*/
 
   /* width */
 
@@ -77,7 +72,11 @@
   .page-footer {
     background-color: #141c31;
   }
-  
+  /*------------------------------ main content*/
+    .page-title {
+    color: #f0f8ff;
+  }
+
   
   .recipe-form{
     color: #242e4a;
@@ -114,10 +113,17 @@
     background-color: #0089ec;
 }
 
+
+/*------------------------------chart page*/
 .chart-container {
     width: 80%;
     margin: 10px auto;
     background-color: #faebd7;
-    
 
+}
+
+/*------------------------------------------ footer*/
+
+.made{
+  margin: 0;
 }
