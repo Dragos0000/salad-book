@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,6 @@
     <meta name="author" content="Dragos Paun">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Salad Book</title>
-    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
     <!--Materialize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--Google fonts-->
@@ -19,7 +18,6 @@
 
 <body>
     <header>
-
         <!--Nav content-->
         <div class="navbar-fixed">
             <nav>
@@ -33,37 +31,36 @@
                             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
-                                <!--Dropdown Structure -->
+                        <!--Dropdown Structure -->
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a class='dropdown-trigger' href='#' data-activates='dropdown2' data-hover="hover" data-alignment="left">Season<i class="material-icons right">navigate_next</i></a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right">navigate_next</i></a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">Type<i class="material-icons right">navigate_next</i></a></li>
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown5" data-hover="hover" data-alignment="left">Popularity<i class="material-icons right">navigate_next</i></a></li>
                         </ul>
-                         <ul class="dropdown-content" id="dropdown2">
+                        <ul class="dropdown-content" id="dropdown2">
                             <li><a href="{{url_for('get_spring')}}">Spring</a></li>
                             <li><a href="{{url_for('get_summer')}}">Summer</a></li>
                             <li><a href="{{url_for('get_autumn')}}">Autumn</a></li>
                             <li><a href="{{url_for('get_winter')}}">Winter</a></li>
-                        </ul>  
+                        </ul>
                         <ul class="dropdown-content" id="dropdown3">
                             <li><a href="{{url_for('get_easy')}}">Easy</a></li>
                             <li><a href="{{url_for('get_medium')}}">Medium</a></li>
                             <li><a href="{{url_for('get_hard')}}">Hard</a></li>
-                        </ul>  
+                        </ul>
                         <ul class="dropdown-content" id="dropdown4">
                             <li><a href="{{url_for('get_vegetarian')}}">Vegetarian</a></li>
                             <li><a href="{{url_for('get_with_meat')}}">With meat</a></li>
-                        </ul>  
+                        </ul>
                         <ul class="dropdown-content" id="dropdown5">
                             <li><a href="{{url_for('most_popular')}}">Most popular</a></li>
                             <li><a href="{{url_for('less_popular')}}">Less popular</a></li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
             </nav>
         </div>
-
         <!--Side nav-->
         <ul class="side-nav" id="mobile-nav-bar">
             <li>
@@ -113,7 +110,7 @@
                         </li>
                     </ul>
                 </li>
-                                <li class="white">
+                <li class="white">
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header waves-effect waves-blue">Search by Season <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
@@ -149,43 +146,42 @@
                 </li>
             </li>
         </ul>
-        
+
     </header>
 
     <!--Main Article -->
 
     <main>
         <div class="container">
-            {% block content %} 
-            {% endblock %}
+            {% block content %} {% endblock %}
         </div>
     </main>
     <!--Footer-->
 
-        <footer class="page-footer">
-          <div class="container">
+    <footer class="page-footer">
+        <div class="container">
             <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Stay Fresh</h5>
-                <p class="grey-text text-lighten-4">"A salad is not a meal. It is a style."</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Quick Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="{{url_for('get_recipes')}}">View all Recipes</a></li>
-                    <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                    <li><a class="grey-text text-lighten-3" href="{{url_for('data_chart')}}">Data chart</a></li>
-                </ul>
-              </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Stay Fresh</h5>
+                    <p class="grey-text text-lighten-4">"A salad is not a meal. It is a style."</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Quick Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{url_for('data_chart')}}">Data chart</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <div class="footer-copyright">
+        </div>
+        <div class="footer-copyright">
             <div class="row center-align">
                 <p class="copyright text-muted made">Copyright © 2019 made by <a href='https://github.com/Dragos0000' target='_blank'>&lt;&lt;Dude4Code&gt;&gt;</a></p>
             </div>
-          </div>
-        </footer>
-    
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='js/addIngredients.js')}}"></script>
@@ -197,8 +193,8 @@
             $('.button-collapse').sideNav();
             $('.stars-inner').css('width', '30%');
             addIngredient();
-            
-            
+
+
             function isEmpty(value) {
                 return (value === null || value === undefined || value.length === 0);
             }
@@ -208,56 +204,56 @@
             }
         });
     </script>
-    
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-            <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: {{data_labels|safe}},
-        datasets: [{
-            label: '# of recipes',
-            data: {{data|safe}},
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    responsive: true, 
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: { { data_labels | safe } },
+                datasets: [{
+                    label: '# of recipes',
+                    data: { { data | safe } },
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            responsive: true,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
                 layout: {
-            padding: {
-                left: 10,
-                right: 10,
-                top: 10,
-                bottom: 10
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        top: 10,
+                        bottom: 10
+                    }
+                }
             }
-        }
-    }
-});
-</script>
+        });
+    </script>
 </body>
 
 </html>

@@ -1,28 +1,27 @@
-{% extends 'base.html'%} 
-{% block content %}
+{% extends 'base.html'%} {% block content %}
 
 <h3 class="page-title">Search results</h3>
 
-<div class="row"> 
+<div class="row">
   {% for recipe in recipes %}
   <div class="col s12 l6 recipes_card">
     <div class="card large hoverable">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator card-img" src="{{ recipe.image_url }}" >
+        <img class="activator card-img" src="{{ recipe.image_url }}">
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{{recipe.recipe_name}}</span><span class="author">by {{recipe.author}}</span>
         <div class="row">
-        <div id="starRating" class="col s6">
-          <p>{{ recipe.rating }} <i class="small material-icons">grade</i></p>
-        </div>
-        <div id="recipeInfo" class="col s6">
+          <div id="starRating" class="col s6">
+            <p>{{ recipe.rating }} <i class="small material-icons">grade</i></p>
+          </div>
+          <div id="recipeInfo" class="col s6">
             <ul>
-                <li>Season: {{ recipe.season }}</li>
-                <li>Difficulty: {{ recipe.difficulty }}</li>
-                <li> Time: {{ recipe.prep_time }} <span> min</span></li>
-                <li>Serves: {{ recipe.serves }}</li>
-        </div>
+              <li>Season: {{ recipe.season }}</li>
+              <li>Difficulty: {{ recipe.difficulty }}</li>
+              <li> Time: {{ recipe.prep_time }} <span> min</span></li>
+              <li>Serves: {{ recipe.serves }}</li>
+          </div>
         </div>
       </div>
 
@@ -35,7 +34,7 @@
         </ul>
         <div class="scroll">
           <h5>Method</h5>
-        <p>{{recipe.method}}</p>
+          <p>{{recipe.method}}</p>
         </div>
         <div class="edit">
           <input class="btn waves-effect waves-light edit_btn" type="button" name="edit" value="Edit" onClick="window.location.href='{{url_for('edit_recipe', recipe_id=recipe._id)}}';" />
