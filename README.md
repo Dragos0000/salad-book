@@ -49,7 +49,6 @@ Push to Heroku ----> git push heroku master
 * Testing connection to the database
 * Testing adding a recipe in the DB by filling and submitting the right form (post)
 * Testing editing a recipe in the DB by filling and submitting the right form (post)
-* Testing game for wrong answers, attempts count and final score in the leaderboard table
 * Testing the back-end code with tests and print statements
 * Used html and css validator
 * Google Developer Tools (responsive mode)
