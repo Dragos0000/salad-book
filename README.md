@@ -46,9 +46,11 @@ Push to Heroku ----> git push heroku master
 
 
 ## Testing 
-* Testing connection to the database
-* Testing adding a recipe in the DB by filling and submitting the right form (post)
-* Testing editing a recipe in the DB by filling and submitting the right form (post)
+* Manual testing navbar, links on the footer and buttons 
+* Testing connection to the database (getting data from the database to the front-end)
+* Testing adding a recipe in the DB by filling and submitting the right form (post) and login in to mLab to see the records in the DB.
+* Testing editing a recipe in the DB by filling and submitting the right form (post)and login in to mLab to see the records in the DB.
+* Testing deleting a recipe by using the 'Delete' button in the UI and then checking the DB to see if the record has been removed.
 * Testing the back-end code with tests and print statements
 * Used html and css validator
 * Google Developer Tools (responsive mode)
